@@ -13,9 +13,9 @@ class NeuralNetwork(nn.Module):
         super().__init__()
         self.flatten = nn.Flatten()
         self.network = nn.Sequential(
-            nn.Linear(28 * 28, 128),
+            nn.Linear(28 * 28, 256),
             nn.ReLU(),
-            nn.Linear(128, 64),
+            nn.Linear(256, 64),
             nn.ReLU(),
             nn.Linear(64, 10),
         )
@@ -34,8 +34,8 @@ test_dataset = datasets.FashionMNIST(
 )
 
 batch_size = 64
-learning_rate =0.0001
-epochs = 3
+learning_rate =0.001
+epochs = 5
 
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=batch_size)
